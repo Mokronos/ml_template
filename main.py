@@ -2,6 +2,10 @@ import pandas
 
 url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
 
-data = pandas.read_csv(url, names=["test","test2","easd","easd1","easd2"])
+data = pandas.read_csv(url)
 
-print(data.head())
+data.columns = ["sepal_length", "sepal_width", "petal_length", "petal_width", "target"]
+
+data.plot()
+
+print(data)
