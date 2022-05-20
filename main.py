@@ -9,3 +9,4 @@ data.columns = ["sepal_length", "sepal_width", "petal_length", "petal_width", "t
 data.plot()
 
 print(data)
+
