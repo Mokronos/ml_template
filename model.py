@@ -32,6 +32,7 @@ for X, y in test_dataloader:
     break
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
+# device = "cpu"
 print(f"Using {device} device")
 
 class NeuralNetwork(nn.Module):
@@ -92,6 +93,8 @@ def test(dataloader, model, loss_fn):
     print(f"Test Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
 
 
+import time
+start_time = time.time()
 
 epochs = 5
 for t in range(epochs):
@@ -117,3 +120,6 @@ with torch.no_grad():
     pred = model(x)
     predicted, actual = classes[pred[0].argmax(0)], classes[y]
     print(f'Predicted: "{predicted}", Actual: "{actual}"')
+
+
+print("--- %s seconds ---" % (time.time() - start_time))
